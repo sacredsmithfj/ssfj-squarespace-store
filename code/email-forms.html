@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Capture Forms</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+        .form-container { max-width: 600px; margin: 20px auto; padding: 20px; border-radius: 8px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        input[type="email"], input[type="text"] { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 15px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .footer { background-color: #f1f1f1; padding: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<!-- Popup Signup Form for Lead Magnet -->
+<div class="form-container" id="popupForm" style="display: none;">
+    <h2>Sign up for our Lead Magnet!</h2>
+    <form id="leadMagnetForm">
+        <input type="email" name="email" required placeholder="Your email address">
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+
+<!-- Inline Signup Form for Blog -->
+<div class="form-container">
+    <h2>Subscribe to our Blog!</h2>
+    <form id="blogSignupForm">
+        <input type="email" name="email" required placeholder="Your email address">
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+
+<!-- Footer Newsletter Signup -->
+<div class="form-container footer">
+    <h2>Newsletter</h2>
+    <form id="footerNewsletterForm">
+        <input type="email" name="email" required placeholder="Your email address">
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+
+<!-- Exit-Intent Popup Form -->
+<div class="form-container" id="exitIntentForm" style="display: none;">
+    <h2>Wait! Don’t leave yet!</h2>
+    <form id="exitIntentSignupForm">
+        <input type="email" name="email" required placeholder="Your email address">
+        <button type="submit">Get Discount</button>
+    </form>
+</div>
+
+<!-- Contact Form Template -->
+<div class="form-container">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <input type="text" name="name" required placeholder="Your name">
+        <input type="email" name="email" required placeholder="Your email address">
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<script>
+    // Show popup forms
+    function showPopup() {
+        document.getElementById('popupForm').style.display = 'block';
+    }
+    function showExitIntent() {
+        document.getElementById('exitIntentForm').style.display = 'block';
+    }
+    window.addEventListener('load', function () {
+        setTimeout(showPopup, 5000);  // Show popup after 5 seconds
+    });
+    window.addEventListener('beforeunload', showExitIntent); // Show exit intent when leaving
+    
+    // Add form submission logic here (e.g., AJAX or fetch API to handle submissions)
+</script>
+
+<!-- Instructions for Integration -->
+<div>
+    <h3>Integration Instructions</h3>
+    <p>To integrate these forms with your email marketing tool, follow the instructions below:</p>
+    <h4>Mailchimp</h4>
+    <p>1. Go to your Mailchimp account and create an audience.</p>
+    <p>2. Get the API key and replace the form action URL with your Mailchimp form URL.</p>
+
+    <h4>Klaviyo</h4>
+    <p>1. In Klaviyo, create a list to collect subscribers.</p>
+    <p>2. Use the API key to send data to Klaviyo.</p>
+
+    <h4>ConvertKit</h4>
+    <p>1. Create a form in ConvertKit and get the form action URL.</p>
+    <p>2. Replace the form action URL in the forms accordingly.</p>
+</div>
+
+</body>
+</html>
